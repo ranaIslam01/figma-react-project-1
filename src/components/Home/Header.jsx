@@ -20,7 +20,7 @@ function Header() {
           {/* Desktop Menu */}
           <div className="hidden lg:block">
             <div className="flex gap-8">
-              <ul className="flex gap-6 items-center text-gray-500 font-semibold">
+              <ul className="flex gap-6 items-center text-gray-500 font-semibold text-lg">
                 <li className="hover:underline hover:scale-103 hover:text-red-600 cursor-pointer">
                   <Link to="/">Home</Link>
                 </li>
