@@ -1,4 +1,4 @@
-import React from 'react'
+import GetInTouch from "../components/Home/GetInTouch"
 
 function ContuctUsPage() {
   return (
