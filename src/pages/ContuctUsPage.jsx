@@ -1,6 +1,6 @@
-import GetInTouch from "../components/Home/GetInTouch"
+import React from 'react'
 
-function ContuctUspage() {
+function ContuctUsPage() {
   return (
     <div>
       <GetInTouch/>
@@ -8,4 +8,4 @@ function ContuctUspage() {
   )
 }
 
-export default ContuctUspage
+export default ContuctUsPage
