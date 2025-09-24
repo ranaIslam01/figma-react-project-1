@@ -8,84 +8,112 @@ function Header() {
 
   return (
     <div>
-      <header className="bg-[url('/images/image.png')] md:mx-10 mx-4 mt-4 pt-5 bg-center bg-cover md:h-170 h-150 rounded-4xl">
-        <nav className="flex justify-between items-center bg-white mx-8 rounded-4xl px-6 py-1 relative">
-          <div className="hidden md:block">
+      {/* ==== Header with background image ==== */}
+      <header className="bg-[url('/images/image.png')] h-140 bg-center mt-1 bg-cover md:mx-8 md:mt-26 mx-2 rounded-4xl relative">
+        
+        {/* ==== Navigation Bar ==== */}
+        <nav
+          className="
+            flex justify-between items-center 
+            fixed top-4 left-1/2 transform -translate-x-1/2 
+            bg-white rounded-4xl px-6 py-2 
+            w-[90%] max-w-6xl shadow-md z-50
+          "
+        >
+          {/* ==== Logo (Desktop) ==== */}
+          <div className="hidden md:block cursor-pointer">
             <img className="h-12" src="/images/image 7.png" alt="logo" />
           </div>
+
+          {/* ==== Logo (Mobile) ==== */}
           <div className="md:hidden block">
             <img className="h-12" src="/images/logo.png" alt="mobile-logo" />
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:block">
-            <div className="flex gap-8">
-              <ul className="flex gap-6 items-center text-gray-500 font-semibold text-lg">
-                <li className="hover:underline hover:scale-103 hover:text-red-600 cursor-pointer">
-                  <Link to="/">Home</Link>
-                </li>
-                <li className="hover:underline hover:scale-103 hover:text-red-600 cursor-pointer">
-                  <Link to="/about">About Us</Link>
-                </li>
-                <li className="hover:underline hover:scale-103 hover:text-red-600 cursor-pointer">
-                  <Link to="/cyber-program">Cyber Program</Link>
-                </li>
-                <li className="hover:underline hover:scale-103 hover:text-red-600 cursor-pointer">
-                  <Link to="/contact">Contact Us</Link>
-                </li>
-              </ul>
-              <button className="bg-[#F6931D] text-white px-4 py-2 rounded-4xl">
-                Get in touch
-              </button>
-            </div>
+          {/* ==== Desktop Menu ==== */}
+          <div className="hidden [@media(min-width:1150px)]:block">
+            <ul className="flex items-center gap-3 text-gray-600 font-semibold text-lg">
+              {/* scale-103 Tailwind এ নেই, তাই scale-105 ব্যবহার করেছি */}
+              <li className=" transition duration-100 hover:duration-100 rounded-2xl  text-[#F6931D] hover:border hover:border-red-200 cursor-pointer hover:bg-red-500 hover:text-white px-4 border border-transparent py-2 ">
+                <Link to="/">Home</Link>
+              </li>
+              <li className=" transition duration-100 hover:duration-100 rounded-2xl  text-[#F6931D] hover:border hover:border-red-200 cursor-pointer hover:bg-red-500 hover:text-white px-4 border border-transparent py-2 ">
+                <Link to="/about">About Us</Link>
+              </li>
+              <li className=" transition duration-100 hover:duration-100 rounded-2xl  text-[#F6931D] hover:border hover:border-red-200 cursor-pointer hover:bg-red-500 hover:text-white px-4 border border-transparent py-2 ">
+                <Link to="/cyber-program">Cyber Program</Link>
+              </li>
+              <li className=" transition duration-100 hover:duration-100 rounded-2xl  text-[#F6931D] hover:border hover:border-red-200 cursor-pointer hover:bg-red-500 hover:text-white px-4 border border-transparent py-2 ">
+                <Link to="/contact">Contact Us</Link>
+              </li>
+            </ul>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div
-            className="block md:hidden"
+          {/* ==== Desktop Button ==== */}
+          <div className="hidden [@media(min-width:1150px)]:block">
+            <button className="btn btn:hover">
+              Get in touch
+            </button>
+          </div>
+
+          {/* ==== Mobile Menu Button ==== */}
+          {/* আগের মতো div নয়, button ব্যবহার করেছি accessibility এর জন্য */}
+          <button
+            className="block [@media(min-width:1150px)]:hidden"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle Menu"
           >
             <FontAwesomeIcon
               icon={isOpen ? faTimes : faBars}
-              className="text-2xl text-gray-600 cursor-pointer"
+              className="text-2xl text-[#F6931D] cursor-pointer"
             />
-          </div>
+          </button>
 
-          {/* Mobile Dropdown Menu */}
+          {/* ==== Mobile Dropdown Menu ==== */}
           {isOpen && (
-            <div className="absolute top-16 right-6 bg-white shadow-lg rounded-2xl p-6 w-48 md:hidden z-50">
+            <div className="absolute top-16 right-6 bg-white shadow-lg rounded-2xl p-6 w-48 z-50">
               <ul className="flex flex-col gap-4 text-gray-700">
-                <li>
-                  <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+                <li className="border flex justify-center items-center p-2 rounded-4xl border-orange-5000 text-orange-500">
+                  <Link to="/" onClick={() => setIsOpen(false)}>
+                    Home
+                  </Link>
                 </li>
-                <li>
-                  <Link to="/about" onClick={() => setIsOpen(false)}>About Us</Link>
+                <li className="border flex justify-center items-center p-2 rounded-4xl border-orange-5000 text-orange-500">
+                  <Link to="/about" onClick={() => setIsOpen(false)}>
+                    About Us
+                  </Link>
                 </li>
-                <li>
-                  <Link to="/cyber-program" onClick={() => setIsOpen(false)}>Cyber Program</Link>
+                <li className="border flex justify-center items-center p-2 rounded-4xl border-orange-5000 text-orange-500">
+                  <Link to="/cyber-program" onClick={() => setIsOpen(false)}>
+                    Cyber Program
+                  </Link>
                 </li>
-                <li>
-                  <Link to="/contact" onClick={() => setIsOpen(false)}>Contact Us</Link>
+                <li className="border flex justify-center items-center p-2 rounded-4xl border-orange-5000 text-orange-500">
+                  <Link to="/contact" onClick={() => setIsOpen(false)}>
+                    Contact Us
+                  </Link>
                 </li>
               </ul>
-              <button className="bg-[#F6931D] text-white px-4 py-2 rounded-4xl mt-4 w-full">
+              <button className="bg-[#F6931D] text-white px-4 py-2 rounded-4xl mt-4 w-full hover:opacity-90 transition">
                 Get in touch
               </button>
             </div>
           )}
         </nav>
 
-        <div className="md:-mt-0 -mt-32">
-          <div className="flex justify-center items-center flex-col text-center md:w-160 w-10 mx-auto text-sm h-screen gap-4">
-            <h1 className="text-white text-4xl font-bold">
+        {/* ==== Hero Section ==== */}
+        {/* -mt-32 এর বদলে pt-40 ব্যবহার করেছি responsive fix এর জন্য */}
+        <div className="pt-40 md:pt-56 pb-20">
+          <div className="flex justify-center items-center flex-col text-center md:w-160 w-10/12 mx-auto text-sm min-h-[30vh] gap-6">
+            <h1 className="text-white text-4xl font-bold leading-snug">
               Empowering Underrepresented Communities in Tech
             </h1>
-            <p className="text-gray-400 hidden md:block">
+            <p className="text-gray-200 hidden md:block max-w-2xl">
               At Diversity Cyber Council, we are committed to bridging the gap
               in the tech industry by providing education, training, and
               staffing opportunities to underrepresented demographics.
             </p>
-            <button className="bg-[#F6931D] text-white md:px-4 px-10 py-2 rounded-4xl">
+            <button className="bg-[#F6931D] text-white md:px-6 px-10 py-3 rounded-4xl hover:opacity-90 transition">
               Get involved
             </button>
           </div>
