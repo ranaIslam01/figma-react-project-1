@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="https://i.ibb.co/9h0vJ2p/gpt3-demo.png" alt="Project Screenshot" width="80%">
+  <img width="1353" height="648" alt="Screenshot 2025-10-06 143324" src="https://github.com/user-attachments/assets/00e6134c-d2e2-431c-926f-453a4309f4eb" />
+
 </div>
 
 <p align="center">
@@ -7,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="https://gpt3-landing-page-rana.vercel.app/"><strong>➥ Live Demo</strong></a>
+  <a href= https://figma-react-project-1.vercel.app/><strong>➥ Live Demo</strong></a>
 </p>
 
 ---
